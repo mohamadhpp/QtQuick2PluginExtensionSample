@@ -5,6 +5,9 @@ In this example, I created a qml plugin and got the output from it, and I plan t
 
 Cmake is used in this library.
 
+[MyPlugin Project](#myplugin-project) \
+[MyPluginTest Project](#myplugintest-project) \
+[Usage](#Usage)
 
 # MyPlugin Project
 
