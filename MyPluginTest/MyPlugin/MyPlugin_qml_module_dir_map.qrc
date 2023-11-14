@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/MyPlugin">F:/MyProjects/QtQuick2PluginExtensionExample/build-MyPlugin-Desktop_Qt_6_5_2_MSVC2019_64bit-Release/MyPlugin</file>
+
+  </qresource>
+</RCC>

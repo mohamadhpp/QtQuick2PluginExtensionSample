@@ -1,0 +1,47 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(MyPlugin VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(QT_QML_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR})
+
+set(PROJECT_NAME "MyPlugin")
+set(QML_PLUGIN_DESTDIR "${CMAKE_CURRENT_SOURCE_DIR}/../Release")
+
+find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
+
+qt_add_library(MyPlugin STATIC)
+qt_add_qml_module(MyPlugin
+    URI MyPlugin
+    VERSION 1.0
+    QML_FILES MyItemControls.qml
+    SOURCES myitem.cpp myitem.h
+)
+
+set_target_properties(MyPlugin PROPERTIES
+    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)
+
+target_compile_definitions(MyPlugin
+    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+target_link_libraries(MyPlugin
+    PRIVATE Qt6::Quick)
+
+target_include_directories(MyPlugin PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+
+install(DIRECTORY "${CMAKE_BINARY_DIR}/${PROJECT_NAME}" DESTINATION ${QML_PLUGIN_DESTDIR}
+        FILE_PERMISSIONS
+            OWNER_READ OWNER_EXECUTE OWNER_WRITE
+            GROUP_READ GROUP_EXECUTE
+            WORLD_READ WORLD_EXECUTE
+        DIRECTORY_PERMISSIONS
+            OWNER_READ OWNER_EXECUTE OWNER_WRITE
+            GROUP_READ GROUP_EXECUTE GROUP_WRITE
+            WORLD_READ WORLD_EXECUTE
+        FILES_MATCHING PATTERN "*")

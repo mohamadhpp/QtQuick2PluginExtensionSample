@@ -1,0 +1,8 @@
+module MyPlugin
+linktarget MyPluginplugin
+optional plugin MyPluginplugin
+classname MyPluginPlugin
+typeinfo MyPlugin.qmltypes
+prefer :/MyPlugin/
+MyItemControls 1.0 MyItemControls.qml
+
