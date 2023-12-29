@@ -1,7 +1,7 @@
 
-# Qt Quick 2 Plugin Extension Example
+# Qt Quick 2 Plugin Extension Sample
 
-In this example, I created a qml plugin and got the output from it, and I plan to use it in another project.
+In this sample, I created a qml plugin and got the output from it, and I plan to use it in another project.
 
 Cmake is used in this library.
 
