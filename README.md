@@ -57,6 +57,8 @@ target_link_libraries(appMyPluginTest
 )
 ```
 
+**_NOTE:_** The following part can be ignored and not added to the project ([Issue #1](https://github.com/mohamadhpp/QtQuick2PluginExtensionSample/issues/1))
+
 **main.cpp**
 
 ```
